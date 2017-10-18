@@ -2,5 +2,8 @@
     <string name="app_name">EjercicioIntents</string>
 
     <!-- Menu Activity -->
+    <string name="menu_name">Brush</string>
+    <string name="menu_quantity">20</string>
     <string name="menu_buy">Buy</string>
+    <string name="menu_choose_quantity">Quantity</string>
 </resources>

@@ -6,11 +6,42 @@
     android:layout_height="match_parent"
     tools:context="com.example.sw.ejerciciointents.MenuActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/menu_padding_between_fields"
+        android:paddingEnd="@dimen/menu_padding_between_fields"
+        android:paddingTop="@dimen/menu_padding_between_fields"
+        android:src="@drawable/ic_action_brush"
+        android:id="@+id/menu_image"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/product_name"
-        android:layout_alignParentLeft="true"
+        android:paddingTop="@dimen/menu_padding_between_fields"
+        android:layout_toEndOf="@+id/menu_image"
+        android:text="@string/menu_name"
+        android:id="@+id/menu_name"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/menu_image"
+        android:layout_below="@+id/menu_name"
+        android:text="@string/menu_quantity"
+        android:id="@+id/menu_quantity"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/menu_padding_between_fields"
+        android:paddingEnd="@dimen/menu_padding_between_fields"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/menu_name"
+        android:hint="@string/menu_choose_quantity"
+        android:id="@+id/menu_choose_quantity"
         />
 
     <Button
@@ -18,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:text="@string/app_name"
+        android:text="@string/menu_buy"
         android:id="@+id/menu_buy"/>
 
 </RelativeLayout>
