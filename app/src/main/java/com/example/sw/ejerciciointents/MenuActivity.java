@@ -42,15 +42,17 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onActivityReenter(int resultCode, Intent data) {
-        super.onActivityReenter(resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == RESULT_OK){
-            int quantity = data.getIntExtra("quantity", 1);
-            String message = "Purchased " + quantity + " objects";
-            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(getApplicationContext(), "Purchase cancelled", Toast.LENGTH_LONG).show();
+        if(requestCode == PURCHASE_REQUEST_CODE){
+            if(resultCode == RESULT_OK){
+                int quantity = data.getIntExtra("quantity", 1);
+                String message = "Purchased " + quantity + " objects";
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(getApplicationContext(), "Purchase cancelled", Toast.LENGTH_LONG).show();
+            }
         }
     }
 }
