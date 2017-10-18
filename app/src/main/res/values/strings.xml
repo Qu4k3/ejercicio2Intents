@@ -13,4 +13,6 @@
     <string name="purchase_choose_quantity">Quantity</string>
     <string name="purchase_buy">Buy</string>
     <string name="purchase_cancel">Cancel</string>
+
+    <string name="purchase_purchased">"Purchased %1$d objects"</string>
 </resources>

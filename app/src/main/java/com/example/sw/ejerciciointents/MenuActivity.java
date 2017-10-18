@@ -48,7 +48,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         if(requestCode == PURCHASE_REQUEST_CODE){
             if(resultCode == RESULT_OK){
                 int quantity = data.getIntExtra("quantity", 1);
-                String message = "Purchased " + quantity + " objects";
+                String message = getResources().getString(R.string.purchase_purchased, quantity);
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
             }else{
                 Toast.makeText(getApplicationContext(), "Purchase cancelled", Toast.LENGTH_LONG).show();
