@@ -4,6 +4,13 @@
     <!-- Menu Activity -->
     <string name="menu_name">Brush</string>
     <string name="menu_quantity">20</string>
-    <string name="menu_buy">Buy</string>
     <string name="menu_choose_quantity">Quantity</string>
+    <string name="menu_buy">Buy</string>
+    
+    <!-- Purchase Activity -->
+    <string name="purchase_name">Brush</string>
+    <string name="purchase_quantity">20</string>
+    <string name="purchase_choose_quantity">Quantity</string>
+    <string name="purchase_buy">Buy</string>
+    <string name="purchase_cancel">Cancel</string>
 </resources>

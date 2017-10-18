@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sw.ejerciciointents.PurchaseActivity">
+    tools:context="com.example.sw.ejerciciointents.MenuActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/purchase_padding_between_fields"
+        android:paddingEnd="@dimen/purchase_padding_between_fields"
+        android:paddingTop="@dimen/purchase_padding_between_fields"
+        android:src="@drawable/ic_action_brush"
+        android:id="@+id/purchase_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/purchase_padding_between_fields"
+        android:layout_toEndOf="@+id/purchase_image"
+        android:text="@string/purchase_name"
+        android:id="@+id/purchase_name"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/purchase_image"
+        android:layout_below="@+id/purchase_name"
+        android:text="@string/purchase_quantity"
+        android:id="@+id/purchase_quantity"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/purchase_padding_between_fields"
+        android:paddingEnd="@dimen/purchase_padding_between_fields"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/purchase_name"
+        android:hint="@string/purchase_choose_quantity"
+        android:id="@+id/purchase_choose_quantity"
+        />
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/purchase_cancel"
+        android:id="@+id/purchase_cancel"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/purchase_buy"
+        android:id="@+id/purchase_buy"/>
+
+</RelativeLayout>
