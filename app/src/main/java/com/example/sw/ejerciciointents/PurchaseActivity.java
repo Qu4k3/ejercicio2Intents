@@ -41,9 +41,9 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
                 if(etQuantity.getText().toString().isEmpty()){
                     return;
                 }
-                this.setResult(RESULT_OK);
                 Intent intent = getIntent();
                 intent.putExtra("quantity", Integer.valueOf(etQuantity.getText().toString()));
+                this.setResult(RESULT_OK, intent);
                 finish();
                 break;
         }
