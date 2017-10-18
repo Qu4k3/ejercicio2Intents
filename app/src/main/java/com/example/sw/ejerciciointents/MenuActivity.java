@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +20,9 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_menu);
 
         etQuantity = (EditText) findViewById(R.id.menu_choose_quantity);
+
+        Button buy = (Button) findViewById(R.id.menu_buy);
+        buy.setOnClickListener(this);
     }
 
     @Override
@@ -42,8 +46,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityReenter(resultCode, data);
 
         if(resultCode == RESULT_OK){
-            data.getIntExtra("wasssa", 1);
-            String message = "Purchased" + "4" + "objects";
+            int quantity = data.getIntExtra("quantity", 1);
+            String message = "Purchased " + quantity + " objects";
             Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(getApplicationContext(), "Purchase cancelled", Toast.LENGTH_LONG).show();
