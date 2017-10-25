@@ -33,16 +33,15 @@
         android:id="@+id/menu_quantity"
         />
 
-    <EditText
+    <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/menu_padding_between_fields"
         android:paddingEnd="@dimen/menu_padding_between_fields"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/menu_name"
-        android:hint="@string/menu_choose_quantity"
-        android:id="@+id/menu_choose_quantity"
-        />
+        android:id="@+id/menu_spinner_quantity">
+    </Spinner>
 
     <Button
         android:layout_width="wrap_content"
