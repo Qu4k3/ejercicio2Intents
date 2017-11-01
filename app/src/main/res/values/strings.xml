@@ -6,6 +6,9 @@
     <string name="menu_quantity">20</string>
     <string name="menu_choose_quantity">Quantity</string>
     <string name="menu_buy">Buy</string>
+
+
+    <string name="menu_purchase_quantity">quantity</string>
     
     <!-- Purchase Activity -->
     <string name="purchase_name">Brush</string>
@@ -15,4 +18,5 @@
     <string name="purchase_cancel">Cancel</string>
 
     <string name="purchase_purchased">"Purchased %1$d objects"</string>
+    <string name="purchase_cancelled">Purchase cancelled</string>
 </resources>

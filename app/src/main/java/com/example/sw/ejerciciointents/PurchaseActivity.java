@@ -10,7 +10,8 @@ import android.widget.Spinner;
 
 public class PurchaseActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private static final int MAX_QUANTITY_VALUE = 1000;
+    private static final int MAX_QUANTITY_VALUE = 20;
+    private static final int MINIMUM_PURCHASE = 1;
 
     private Spinner spQuantity;
 
@@ -21,11 +22,10 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
 
         Intent intent = getIntent();
 
-        int quantity = intent.getIntExtra("quantity", 1);
+        int quantity = intent.getIntExtra(getResources().getString(R.string.menu_purchase_quantity), 1);
 
         spQuantity = (Spinner) findViewById(R.id.purchase_spinner_quantity);
-        populateSpinner();
-        spQuantity.setSelection(quantity);
+        populateSpinner(quantity);
 
         Button cancel = (Button) findViewById(R.id.purchase_cancel);
         cancel.setOnClickListener(this);
@@ -34,12 +34,16 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
         purchase.setOnClickListener(this);
     }
 
-    private void populateSpinner() {
+    private void populateSpinner(int quantity) {
         ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item);
         for(int i = 0; i < MAX_QUANTITY_VALUE; i++){
             adapter.add(i);
         }
         spQuantity.setAdapter(adapter);
+        // After populating the Spinner we now have to select the item that was selected in the
+        // previous activity. To do so we must use the adapter, this is the object that knows where
+        // a specific item is located.
+        spQuantity.setSelection(adapter.getPosition(quantity));
     }
 
     @Override
@@ -51,11 +55,15 @@ public class PurchaseActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.purchase_buy:
                 int quantity = (Integer) spQuantity.getSelectedItem();
-                if(quantity <= 0){
+                if(quantity < MINIMUM_PURCHASE){
                     return;
                 }
-                Intent intent = getIntent();
-                intent.putExtra("quantity", quantity);
+                // In this case the user has purchased X items and we have to return the amount purchased
+                // to the previous activity. To do so it is not enough to just set a result we must also
+                // return an intent with the data we are passing. To do this we create a new Intent()
+                // populate it and when we set the result we also set an Intent to be returned.
+                Intent intent = new Intent();
+                intent.putExtra(getResources().getString(R.string.menu_purchase_quantity), quantity);
                 this.setResult(RESULT_OK, intent);
                 finish();
                 break;
