@@ -70,6 +70,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 int quantity = data.getIntExtra(getResources().getString(R.string.menu_purchase_quantity), 1);
                 String message = getResources().getString(R.string.purchase_purchased, quantity);
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                spQuantity.setSelection(0);
             }else{
                 Toast.makeText(getApplicationContext(), R.string.purchase_cancelled, Toast.LENGTH_LONG).show();
             }
